@@ -16,6 +16,7 @@ jobs:
 
     env:
       AWS_REGION: 'us-east-1'
+      TF_VAR_availability_zone: 'us-east-1a'
       #TF_VERSION: '4.0'
 
     steps:
