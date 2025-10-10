@@ -16,7 +16,7 @@ jobs:
 
     env:
       AWS_REGION: 'us-east-1'
-      TF_VERSION: '4.0'
+      #TF_VERSION: '4.0'
 
     steps:
     - name: 'Checkout GitHub repository'
