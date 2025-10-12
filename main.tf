@@ -30,7 +30,7 @@ module "jenkins" {
 
 module "lb_target_group" {
     source = "./lb_target_group"
-    lb_target_group_name = "Target group for jenkins server"
+    lb_target_group_name = "Target_group_for_jenkins_server"
     lb_target_group_port = 8080
     lb_target_group_protocol = "HTTP"
     vpc_id= module.networking.dev_proj_1_vpc_id
