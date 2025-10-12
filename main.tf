@@ -60,11 +60,11 @@ module "hosted_zone" {
     source = "./hosted_zone"
     domain_name = "mydevopslife.com"
     aws_alb_dns=module.alb.aws_alb_dns_name
-    hosted_zone_id= module.hosted_zone_id
+    hosted_zone_id= module.hosted_zone.hosted_zone_id
 }
 
 module "ssl_certificate" {
     source = "./ssl_certificate"
     domain_name= "mydevopslife.com"
-    hosted_zone_id=module.hosted_zone_id
+    hosted_zone_id=module.hosted_zone.hosted_zone_id
 }
