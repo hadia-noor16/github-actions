@@ -12,3 +12,5 @@ override.tf.json
 
 # Keep the lockfile (pin provider checksums)
 !.terraform.lock.hcl
+
+**/.terraform/*
