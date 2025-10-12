@@ -10,7 +10,7 @@ on:
 
 jobs:
   terraform:
-    name: 'Terraform initialize, validate, and deploy'
+    name: 'Terraform initialize, validate, and deploy'    #testing
     runs-on: ubuntu-latest
 
     env:
