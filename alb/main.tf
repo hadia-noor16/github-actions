@@ -12,7 +12,7 @@ variable "lb_listener_default_action" {}
 variable "lb_listener_https_port" {}
 variable "lb_listener_https_protocol" {}
 variable "dev_proj_1_acm_arn" {}
-variable "tg_attachement_port" {}
+variable "tg_attachment_port" {}
 
 output "aws_alb_dns_name" {
   value= aws_lb.dev_proj_1_alb.dns_name
@@ -41,7 +41,7 @@ resource "aws_lb" "dev_proj_1_alb" {
 resource "aws_lb_target_group_attachment" "alb_tg_attachment" {
   target_group_arn = var.tg_for_lb
   target_id = var.ec2_instance_id
-  port = var.tg_attachement_port
+  port = var.tg_attachment_port
 }
 
 resource "aws_lb_listener" "dev_proj_1_lb_http_listener" {
