@@ -15,7 +15,7 @@ data "aws_route53_zone" "dev_proj_1_mydevopslife" {
 }
 
 resource "aws_route53_record" "a_alias" {
-  zone_id = data.aws_route53_zone.dev_proj_1_hosted_zone_id.zone_id
+  zone_id = data.aws_route53_zone.dev_proj_1_mydevopslife.zone_id
   name    = var.domain_name
   type    = "A"
 
