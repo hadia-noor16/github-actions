@@ -47,16 +47,14 @@ module "alb" {
     tag_name = "ALB for Jenkins"
     tg_for_lb= module.lb_target_group.tg_arn
     ec2_instance_id = module.jenkins.ec2_jenkins_server
-    lb_http_istener_port = 80
+    lb_http_listener_port = 80
     lb_http_listener_protocol = "HTTP"
     lb_listener_default_action= "forward"
     lb_listener_https_port = 443
     lb_listener_https_protocol = "HTTPS"
     dev_proj_1_acm_arn = module.ssl_certificate.dev_proj_1_acm_arn
-    tg_attachement_port = 80
-
+    tg_attachment_port = 80
 }
-
 
 module "hosted_zone" {
     source = "./hosted_zone"
