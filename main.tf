@@ -30,7 +30,7 @@ module "jenkins" {
 
 module "lb_target_group" {
     source = "./lb_target_group"
-    lb_target_group_name = "Target_group_for_jenkins_server"
+    lb_target_group_name = "Target-group-for-jenkins-server"
     lb_target_group_port = 8080
     lb_target_group_protocol = "HTTP"
     vpc_id= module.networking.dev_proj_1_vpc_id
@@ -39,7 +39,7 @@ module "lb_target_group" {
 
 module "alb" {
     source = "./alb"
-    alb_name = "dev_proj_1_alb"
+    alb_name = "dev-proj-1-alb"
     lb_type = "application"
     is_external = false
     sg_enable_ssh_http = module.security_group.ec2_sg_ssh_http
