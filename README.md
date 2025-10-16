@@ -1,4 +1,4 @@
-# GitHub Actions
+# GitHub Actions using Terraform modules
 
 **Project Overview**
 
