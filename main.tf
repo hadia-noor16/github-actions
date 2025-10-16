@@ -63,7 +63,7 @@ module "alb" {
     lb_listener_https_port = 443
     lb_listener_https_protocol = "HTTPS"
     dev_proj_1_acm_arn = module.ssl_certificate.dev_proj_1_acm_arn
-    tg_attachment_port = 80
+    tg_attachment_port = 8080
 }
 
 module "hosted_zone" {

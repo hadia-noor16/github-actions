@@ -73,3 +73,4 @@ resource "aws_lb_listener" "dev_proj_1_lb_https_listener" {
   }
 
 }
+
