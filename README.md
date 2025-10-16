@@ -15,16 +15,17 @@ A demonstration of how Terraform modules simplify infrastructure management by e
 6. Scalability : When you scale infrastructure (e.g., add another environment, region, or service), you just reuse existing modules — no need to copy-paste or modify tons of .tf files.
 
 **VPC Confriguration**
-Build VPC network ( 196.128.0.0/16 ) 
-Create Internet Gateway for VPC.
-Create Public and Private Subnets along with Route tables.
-Attach Public and private subnets with associated Route Table accordingly, to route the default traffic to IGW for inbound/outbound internet connection.
-Create Security Group for EC2 Jenkins server allowing port 22, port 80, port 443, and port 8080 for Jenkins.
-Create Remote S3 with DynamoDb for state locking.
-Create Target Group and register EC2 server.
-Create Application Load balancer in Public Subnet and add Target Group as target.
-Create SSL certificate for your domain and create R53 records with it.
-Update route53 hosted zone with CNAME record routing the traffic to ALB.
+1. Build VPC network ( 196.128.0.0/16 ) 
+2. Create Internet Gateway for VPC.
+3. Create Public and Private Subnets along with Route tables.
+4. Attach Public and private subnets with associated Route Table accordingly, to route the default traffic to IGW for inbound/outbound internet connection.
+5. Create Security Group for EC2 Jenkins server allowing port 22, port 80, port 443, and port 8080 for Jenkins.
+6. Create Remote S3 with DynamoDb for state locking.
+7. Create Target Group and register EC2 server.
+8. Create Application Load balancer in Public Subnet and add Target Group as target.
+9. Create SSL certificate for your domain and create R53 records with it.
+10. Update route53 hosted zone with CNAME record routing the traffic to ALB.
 
+    
 🔗 **Explore the Code Repository**
 https://github.com/hadia-noor16/github-actions
