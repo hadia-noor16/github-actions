@@ -18,7 +18,11 @@ jobs:
     env:
       AWS_REGION: us-east-1
       TF_VERSION: "1.7.5"
-      TF_PLUGIN_CACHE_DIR: ${{ runner.temp }}/tf-plugin-cache
+      #TF_PLUGIN_CACHE_DIR: /tf-plugin-cache
+
+
+
+   
 
       # If you don’t commit terraform.tfvars, set TF_VAR_* here:
       # TF_VAR_vpc_cidr: "10.0.0.0/16"
@@ -43,10 +47,15 @@ jobs:
       - name: Create plugin cache dir
         run: mkdir -p "$TF_PLUGIN_CACHE_DIR"
 
+      - name: Set TF_PLUGIN_CACHE_DIR
+        run: echo "TF_PLUGIN_CACHE_DIR=${{ runner.temp }}/tf-plugin-cache" >> "$GITHUB_ENV"
+
       - name: Debug where we are
         run: |
           pwd
           ls -la
+
+      
 
       - name: Terraform Init
         run: terraform init -input=false -lock-timeout=5m
