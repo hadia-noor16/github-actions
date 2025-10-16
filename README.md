@@ -47,7 +47,7 @@ https://github.com/hadia-noor16/github-actions
 
 
 
-# Code pushed to main branch that triggers HitHub action workflow to create the infrastructure:
+# Code pushed to main branch that triggers GitHub actions workflow to create the infrastructure:
 <img width="3757" height="2007" alt="#2" src="https://github.com/user-attachments/assets/36977b13-2c36-40cc-9ddc-3b3ef84f48b6" />
 
 # VPC with all the components
