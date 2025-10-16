@@ -2,7 +2,7 @@ variable "instance_type" {}
 variable "ec2_ami" {}
 variable "subnet_id" {}
 variable "user_data_install_jenkins" {}
-variable "public_key" {}
+variable "demokey" {}
 variable "security_group" {}
 variable "enable_public_ip_address" {}
 
@@ -11,6 +11,9 @@ output "ec2_jenkins_server" {
   value = aws_instance.jenkins.id
 }
 
+data "aws_key_pair" "jenkins_key" {
+  key_name = var.demokey
+}
 
 resource "aws_instance" "jenkins"{
     ami = var.ec2_ami
@@ -22,7 +25,7 @@ resource "aws_instance" "jenkins"{
     vpc_security_group_ids= var.security_group
     associate_public_ip_address = var.enable_public_ip_address
     user_data= var.user_data_install_jenkins
-    key_name= "aws_ec2_terraform"
+    key_name= data.aws_key_pair.jenkins_key.key_name
 
 
 
@@ -32,7 +35,3 @@ metadata_options {
   }
 }
 
-resource "aws_key_pair" "jenkins_ec2_instance_public_key" {
-  key_name   = "aws_ec2_terraform"
-  public_key = var.public_key
-}

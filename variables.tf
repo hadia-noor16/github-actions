@@ -13,7 +13,7 @@ variable "cidr_private_subnet" {
 variable "availability_zone" {
     type = list(string)
 }
-variable "public_key" {
+variable "demokey" {
     type = string
 }
 variable "ec2_ami" {
