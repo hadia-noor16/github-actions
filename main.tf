@@ -1,3 +1,14 @@
+terraform{
+    backend "s3" {
+        
+        bucket = "demo-s3-hadia"
+        encrypt = true
+        key = ".tfstate"
+        region = "us-east-1"
+        dynamodb_table = "terraform_locks"
+    }
+}
+
 module "networking"{
     source= "./networking"
     vpc_cidr= var.vpc_cidr
