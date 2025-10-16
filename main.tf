@@ -21,7 +21,7 @@ module "jenkins" {
     instance_type= "t2.medium"
     ec2_ami= var.ec2_ami
     security_group=[module.security_group.ec2_sg_ssh_http, module.security_group.ec2_sg_jenkins]
-    demokey                    = var.key_name
+    demokey                    = var.demokey
     subnet_id = module.networking.public_subnet_ids[0]
     enable_public_ip_address= true
     user_data_install_jenkins= templatefile ("./jenkins_user_data/user_data.sh", {})
