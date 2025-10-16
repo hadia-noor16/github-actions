@@ -30,7 +30,7 @@ resource "aws_lb" "dev_proj_1_alb" {
   security_groups    = [var.sg_enable_ssh_http]
   subnets            = var.public_subnet_ids
 
-  enable_deletion_protection = true
+  enable_deletion_protection = false
 
   tags = {
     Name= var.tag_name
