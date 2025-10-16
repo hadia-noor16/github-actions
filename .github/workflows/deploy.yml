@@ -1,5 +1,9 @@
 name: Terraform CI/CD
 
+concurrency:
+  group: tf-${{ github.ref }}
+  cancel-in-progress: false
+
 on:
   push:
     branches:
