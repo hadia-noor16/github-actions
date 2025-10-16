@@ -70,7 +70,7 @@ module "hosted_zone" {
     source = "./hosted_zone"
     domain_name = "mydevopslife.com"
     aws_alb_dns=module.alb.aws_alb_dns_name
-    hosted_zone_id= module.hosted_zone.hosted_zone_id
+    alb_zone_id  = module.alb.aws_lb_zone_id 
 }
 
 module "ssl_certificate" {

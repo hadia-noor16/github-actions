@@ -44,22 +44,28 @@ resource "aws_lb_target_group_attachment" "alb_tg_attachment" {
   port = var.tg_attachment_port
 }
 
+#HTTP → redirect to HTTPS
 resource "aws_lb_listener" "dev_proj_1_lb_http_listener" {
   load_balancer_arn = aws_lb.dev_proj_1_alb.arn
   port = var.lb_http_listener_port
   protocol = var.lb_http_listener_protocol
 
   default_action {
-    type             = var.lb_listener_default_action
-    target_group_arn = var.tg_for_lb
-  }
+    type = "redirect"
+    redirect {
+      port        = "443"
+      protocol    = "HTTPS"
+      status_code = "HTTP_301"
+    }
 
+}
 }
 
 resource "aws_lb_listener" "dev_proj_1_lb_https_listener" {
   load_balancer_arn = aws_lb.dev_proj_1_alb.arn
   port = var.lb_listener_https_port
   protocol = var.lb_listener_https_protocol
+  certificate_arn   = var.dev_proj_1_acm_arn
 
   default_action {
     type             = var.lb_listener_default_action
