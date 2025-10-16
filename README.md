@@ -39,6 +39,7 @@ A demonstration of how Terraform modules simplify infrastructure management by e
 8. Create Application Load balancer in Public Subnet and add Target Group as target.
 9. Create SSL certificate for your domain and create R53 records with it.
 10. Update route53 hosted zone with CNAME record routing the traffic to ALB.
+11. Created deploy.yml file to create all the resources, and clean.yml file to schedule a cron job to destroy the infrastructure at midnight.
 
     
 🔗 **Explore the Code Repository**
