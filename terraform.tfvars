@@ -6,3 +6,5 @@ cidr_private_subnet = ["196.128.6.0/24", "196.128.8.0/24"]
 availability_zone = ["us-east-1a","us-east-1b"]
 
 ec2_ami= "ami-03c4f11b50838ab5d"
+
+demokey = "my-existing-keypair-name"
