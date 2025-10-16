@@ -7,4 +7,4 @@ availability_zone = ["us-east-1a","us-east-1b"]
 
 ec2_ami= "ami-03c4f11b50838ab5d"
 
-demokey = "my-existing-keypair-name"
+#demokey = "my-existing-keypair-name"
