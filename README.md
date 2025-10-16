@@ -44,3 +44,37 @@ A demonstration of how Terraform modules simplify infrastructure management by e
     
 🔗 **Explore the Code Repository**
 https://github.com/hadia-noor16/github-actions
+
+
+
+# Code pushed to main branch that triggers HitHub action workflow to create the infrastructure:
+<img width="3757" height="2007" alt="#2" src="https://github.com/user-attachments/assets/36977b13-2c36-40cc-9ddc-3b3ef84f48b6" />
+
+# VPC with all the components
+<img width="3140" height="1270" alt="#4-vpc" src="https://github.com/user-attachments/assets/5354148c-121e-4f10-a14b-d6c65b7d11bf" />
+
+# Jenkins server created
+<img width="3202" height="567" alt="#3" src="https://github.com/user-attachments/assets/4b2301fe-9acb-4e73-994d-ac5aedd823f6" />
+
+# Setting up Jenkins
+<img width="2892" height="2127" alt="domain runs jenkins" src="https://github.com/user-attachments/assets/627d127f-5a47-4b7c-8838-f0d12e5a6631" />
+
+Login to the instance using EC2 Instance connect and run the command that's listed on Jenkins initial page to get the password for server.
+<img width="3267" height="772" alt="password" src="https://github.com/user-attachments/assets/7cd7150e-ca7d-483d-a42d-c352ac9f2ae7" />
+
+# Install Suggested Plugins and create first user:
+<img width="2875" height="2097" alt="plugins" src="https://github.com/user-attachments/assets/8cc34382-bd04-4c53-8631-b676de0a644a" />
+<img width="2270" height="1660" alt="login as admin" src="https://github.com/user-attachments/assets/18555f4b-b81d-4e19-9ab7-9f66dba2c60e" />
+
+# Terraform cleanup scheduled for midnight
+<img width="2852" height="677" alt="image" src="https://github.com/user-attachments/assets/8ff7a8c5-091e-4238-9e62-3c4a32ba04c8" />
+
+
+
+
+
+
+
+
+
+
