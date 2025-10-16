@@ -3,38 +3,56 @@ name: Terraform Cleanup
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *' # Runs every day at midnight, adjust as needed
+    - cron: '0 0 * * *'   # midnight UTC
 
 jobs:
   terraform-cleanup:
-    name: 'Post Apply Cleanup'
+    name: Post Apply Cleanup
     runs-on: ubuntu-latest
 
+    # If your TF lives in ./infra, set this:
+    # defaults:
+    #   run:
+    #     working-directory: ./infra
+
     env:
-      AWS_REGION: 'us-east-1'
-      TF_VERSION: '1.7.5'
+      AWS_REGION: us-east-1
+      TF_VERSION: "1.7.5"
+      TF_PLUGIN_CACHE_DIR: ${{ runner.temp }}/tf-plugin-cache
+
+      # If you don’t commit terraform.tfvars, set TF_VAR_* here:
+      # TF_VAR_vpc_cidr: "10.0.0.0/16"
+      # ... etc ...
 
     steps:
-    - name: 'Checkout GitHub repository'
-      uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: 'Configure AWS credentials'
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ env.AWS_REGION }}
+      - name: Configure AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
 
-    - name: 'Set up Terraform'
-      uses: hashicorp/setup-terraform@v4
-      with:
-        terraform_version: ${{ env.TF_VERSION }}
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
 
-    - name: 'Terraform Init'
-      run: terraform init 
+      - name: Create plugin cache dir
+        run: mkdir -p "$TF_PLUGIN_CACHE_DIR"
 
-    - name: 'Terraform Plan Destroy'
-      run: terraform plan -destroy  -var-file=terraform.tfvars -input=false -out=tfdestroy
+      - name: Debug where we are
+        run: |
+          pwd
+          ls -la
 
-    - name: 'Terraform Apply Destroy'
-      run: terraform apply -auto-approve tfdestroy
+      - name: Terraform Init
+        run: terraform init -input=false -lock-timeout=5m
+
+      - name: Terraform Plan Destroy
+        run: terraform plan -destroy -input=false -out=tfdestroy.plan
+
+      - name: Terraform Apply Destroy
+        run: terraform apply -input=false -auto-approve tfdestroy.plan
